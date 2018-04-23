@@ -1,7 +1,8 @@
+/* global describe it, expect, describe */
+
 import React from 'react'
-import ReactDOM from 'react-dom'
 import ToDo from './ToDo'
-import { shallow, configure, mount } from 'enzyme'
+import { configure, mount } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 configure({ adapter: new Adapter() })
 
@@ -16,7 +17,7 @@ describe('ToDo', () => {
     expect(toDo.find('input').length).toEqual(1)
   })
 
-  it('should have a submit button', ()=> {
+  it('should have a submit button', () => {
     const toDo = mount(<ToDo />)
     expect(toDo.find('button').length).toEqual(1)
   })

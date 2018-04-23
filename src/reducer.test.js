@@ -1,6 +1,7 @@
+/* global describe it, expect, describe */
+
 import types from './constants.js'
 import { reducer, initialState } from './reducer.js'
-
 
 describe('Reducer', () => {
   const todoText = 'item'
@@ -23,7 +24,6 @@ describe('Reducer', () => {
           }
         ]
       }
-      
       expect(reducer(undefined, action)).toEqual(expectedState)
     })
   })

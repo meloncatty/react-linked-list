@@ -1,3 +1,5 @@
+/* global describe it, expect, describe */
+
 import actions from './actions'
 import types from './constants.js'
 

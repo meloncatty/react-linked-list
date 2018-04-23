@@ -1,3 +1,5 @@
+/* global describe it, expect, describe */
+
 import React from 'react'
 import { shallow, configure } from 'enzyme'
 import TodoList from './TodoList.js'
@@ -12,7 +14,7 @@ describe('TodoList component', () => {
     }
   ]
 
-  const renderedList = shallow(<TodoList todos={todos}/>)
+  const renderedList = shallow(<TodoList todos={todos} />)
 
   it('should render successfully', () => {
     expect(renderedList.exists()).toEqual(true)

@@ -5,7 +5,6 @@ import './App.css'
 import actions from './actions.js'
 import { connect } from 'react-redux'
 
-
 export const App = ({ submitTodo, todos }) => (
   <div>
     <h1>Todo list</h1>

@@ -1,15 +1,15 @@
 import React from 'react'
 
 const ToDo = ({submitTodo}) => {
-  let input;
+  let input
 
-  return(
+  return (
     <div>
       <form
         onSubmit={(event) => {
-        event.preventDefault()
-        submitTodo(input.value)
-        input.value = ''
+          event.preventDefault()
+          submitTodo(input.value)
+          input.value = ''
         }}
       >
         <input

@@ -1,3 +1,5 @@
+/* global it, expect, jest */
+
 import React from 'react'
 import { shallow, configure } from 'enzyme'
 import { App } from './App'

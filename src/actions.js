@@ -8,7 +8,7 @@ const nextId = () => {
 }
 
 const actions = {
-  submitTodo(text) {
+  submitTodo (text) {
     return {
       type: types.SUBMIT_TODO,
       id: nextId(),
