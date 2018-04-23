@@ -1,7 +1,7 @@
 /* global describe it, expect, describe */
 
 import actions from './actions'
-import types from './constants.js'
+import types from '../constants/constants.js'
 
 describe('Actions', () => {
   const todoText = 'item'

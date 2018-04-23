@@ -1,4 +1,4 @@
-import types from './constants.js'
+import types from '../constants/constants.js'
 
 export const initialState = {
   todos: []

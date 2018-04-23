@@ -1,8 +1,8 @@
 import React from 'react'
-import ToDo from './ToDo'
-import TodoList from './TodoList'
+import ToDo from './components/ToDo'
+import TodoList from './components/TodoList'
 import './App.css'
-import actions from './actions.js'
+import actions from './actions/actions.js'
 import { connect } from 'react-redux'
 
 export const App = ({ submitTodo, todos }) => (
