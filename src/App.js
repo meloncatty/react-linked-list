@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
+import ToDo from './ToDo'
 import './App.css'
 
 class App extends Component {
@@ -10,10 +10,19 @@ class App extends Component {
       toDoList: []
     }
   }
+
+  submitToDo(text) {
+    return text
+  }
+
+  changeInput(text) {
+    return text
+  }
   render () {
     return (
       <div className='App'>
         <header className='App-header'></header>
+        <ToDo toDo={this.state.submitToDo}/>
       </div>
     )
   }
