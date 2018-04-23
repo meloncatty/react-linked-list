@@ -20,13 +20,4 @@ describe('ToDo', () => {
     const toDo = mount(<ToDo />)
     expect(toDo.find('button').length).toEqual(1)
   })
-
-  it('should submit a to do', () => {
-    const submitMock = jest.fn()
-    const toDo = mount(<ToDo submitToDo={submitMock}/>)
-
-    expect(submitMock.mock.calls.length).toEqual(0)
-    toDo.find('form').simulate('submit')
-    expect(submitMock.mock.calls.length).toEqual(1)
-  })
 })

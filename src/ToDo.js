@@ -1,16 +1,14 @@
 import React from 'react'
 
-export default function ToDo(props) {
-  const inputChanged = (text) => {
-    return text
-  }
+const ToDo = ({submitTodo}) => {
   let input;
+
   return(
     <div>
       <form
         onSubmit={(event) => {
         event.preventDefault()
-        props.submitToDo(input.value)
+        submitTodo(input.value)
         input.value = ''
         }}
       >
@@ -30,3 +28,5 @@ export default function ToDo(props) {
     </div>
   )
 }
+
+export default ToDo
