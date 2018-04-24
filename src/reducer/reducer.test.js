@@ -1,7 +1,7 @@
 /* global describe it, expect, describe */
 
 import types from '../constants/constants.js'
-import { reducer, initialState } from '../reducer/reducer.js'
+import { reducer, initialState } from './reducer/reducer.js'
 
 describe('Reducer', () => {
   const todoText = 'item'
