@@ -2,7 +2,7 @@
 
 import React from 'react'
 import ToDo from './ToDo'
-import { configure, mount, shallow } from 'enzyme'
+import { configure, shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 configure({ adapter: new Adapter() })
 

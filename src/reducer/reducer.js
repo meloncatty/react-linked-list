@@ -1,4 +1,5 @@
 import types from '../constants/constants.js'
+import loadState from '../localStorage/localStorage.js'
 
 export const initialState = {
   todos: [],
@@ -46,7 +47,7 @@ export const reducer = (state = initialState, action) => {
       }
 
     case types.WATCH_INPUT:
-      if(action.inputText) {
+      if (action.inputText) {
         return {
           ...state,
           disableTodo: false
@@ -57,6 +58,13 @@ export const reducer = (state = initialState, action) => {
         disableTodo: true
       }
 
+    case types.CHECK_STORAGE:
+      if (localStorage.length >= 1) {
+        return {
+          ...state,
+          todos: loadState()
+        }
+      }
 
     default:
       return state

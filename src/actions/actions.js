@@ -34,6 +34,12 @@ const actions = {
       type: types.WATCH_INPUT,
       inputText
     }
+  },
+
+  checkStorage () {
+    return {
+      type: types.CHECK_STORAGE
+    }
   }
 }
 

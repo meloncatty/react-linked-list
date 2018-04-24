@@ -9,8 +9,8 @@ export const App = ({ submitTodo, todos, deleteTodo, undeleteTodo, disableTodo, 
   <div>
     <h1>Todo list</h1>
     <ToDo submitTodo={submitTodo} undeleteTodo={undeleteTodo}
-          disableTodo={disableTodo} disableUndelete={disableUndelete}
-          watchInput={watchInput}/>
+      disableTodo={disableTodo} disableUndelete={disableUndelete}
+      watchInput={watchInput} />
     <TodoList todos={todos} deleteTodo={deleteTodo} />
   </div>
 )
