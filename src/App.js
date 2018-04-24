@@ -5,10 +5,10 @@ import './App.css'
 import actions from './actions/actions.js'
 import { connect } from 'react-redux'
 
-export const App = ({ submitTodo, todos, deleteTodo }) => (
+export const App = ({ submitTodo, todos, deleteTodo, undeleteTodo }) => (
   <div>
     <h1>Todo list</h1>
-    <ToDo submitTodo={submitTodo} />
+    <ToDo submitTodo={submitTodo} undeleteTodo={undeleteTodo} />
     <TodoList todos={todos} deleteTodo={deleteTodo} />
   </div>
 )
@@ -23,6 +23,10 @@ const mapDispatchToProps = dispatch => ({
   },
   deleteTodo: (id) => {
     dispatch(actions.deleteTodo(id))
+  },
+
+  undeleteTodo: () => {
+    dispatch(actions.undeleteTodo())
   }
 })
 
