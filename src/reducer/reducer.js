@@ -4,7 +4,7 @@ export const initialState = {
   todos: []
 }
 
-const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case types.SUBMIT_TODO:
       return {
@@ -15,6 +15,16 @@ const reducer = (state = initialState, action) => {
             id: action.id,
             text: action.text
           }
+        ]
+      }
+
+    case types.DELETE_TODO:
+      return {
+        ...state,
+        todos: [
+          ...state.todos.filter(todo => (
+            todo.id !== action.id
+          ))
         ]
       }
 
