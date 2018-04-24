@@ -12,33 +12,30 @@ describe('ToDo', () => {
     todos: [
       {
         id: 1,
-        text: 'A todo'
+        text: 'item'
       }
     ],
     undeleteTodo: undeleteMock
   }
+  const toDo = shallow(<ToDo undeleteTodo={props.undeleteTodo} />)
+
   it('should exist', () => {
-    const toDo = mount(<ToDo />)
     expect(toDo).toBeDefined()
   })
 
   it('should have an input', () => {
-    const toDo = mount(<ToDo />)
     expect(toDo.find('input').length).toEqual(1)
   })
 
   it('should have a submit button', () => {
-    const toDo = mount(<ToDo />)
     expect(toDo.find('.submit-todo').length).toEqual(1)
   })
 
   it('should have an undelete button', () => {
-    const toDo = mount(<ToDo />)
     expect(toDo.find('.undelete-todo').length).toEqual(1)
   })
 
   it('should call undelete function when clicked', () => {
-    const toDo = shallow(<ToDo undeleteTodo={props.undeleteTodo} />)
     expect(undeleteMock.mock.calls.length).toEqual(0)
     toDo.find('.undelete-todo').simulate('click')
     expect(undeleteMock.mock.calls.length).toEqual(1)

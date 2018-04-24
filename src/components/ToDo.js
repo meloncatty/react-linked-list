@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ToDo = ({submitTodo, undeleteTodo}) => {
+const ToDo = ({submitTodo, undeleteTodo, disableTodo, disableUndelete, watchInput}) => {
   let input
 
   return (
@@ -18,16 +18,18 @@ const ToDo = ({submitTodo, undeleteTodo}) => {
           ref={(element) => {
             input = element
           }}
+          onChange={() => watchInput(input.value)}
         />
         <button
           className='submit-todo'
-          type='submit'>
+          type='submit'
+          disabled={disableTodo}>
           submit
         </button>
         <button
           className='undelete-todo'
           onClick={() => undeleteTodo()}
-          disabled>
+          disabled={disableUndelete}>
           undelete
         </button>
       </form>

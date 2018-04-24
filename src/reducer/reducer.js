@@ -2,7 +2,9 @@ import types from '../constants/constants.js'
 
 export const initialState = {
   todos: [],
-  deleted: {}
+  deleted: {},
+  disableTodo: true,
+  disableUndelete: true
 }
 
 export const reducer = (state = initialState, action) => {
@@ -16,7 +18,8 @@ export const reducer = (state = initialState, action) => {
             id: action.id,
             text: action.text
           }
-        ]
+        ],
+        disableTodo: true
       }
 
     case types.DELETE_TODO:
@@ -27,7 +30,8 @@ export const reducer = (state = initialState, action) => {
             todo.id !== action.id
           ))
         ],
-        deleted: state.todos.filter(todo => todo.id === action.id)[0]
+        deleted: state.todos.filter(todo => todo.id === action.id)[0],
+        disableUndelete: false
       }
 
     case types.UNDELETE_TODO:
@@ -37,8 +41,22 @@ export const reducer = (state = initialState, action) => {
           ...state.todos,
           state.deleted
         ],
-        deleted: {}
+        deleted: {},
+        disableUndelete: true
       }
+
+    case types.WATCH_INPUT:
+      if(action.inputText) {
+        return {
+          ...state,
+          disableTodo: false
+        }
+      }
+      return {
+        ...state,
+        disableTodo: true
+      }
+
 
     default:
       return state

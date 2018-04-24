@@ -27,6 +27,13 @@ const actions = {
     return {
       type: types.UNDELETE_TODO
     }
+  },
+
+  watchInput (inputText) {
+    return {
+      type: types.WATCH_INPUT,
+      inputText
+    }
   }
 }
 

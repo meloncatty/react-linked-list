@@ -23,7 +23,9 @@ describe('Reducer', () => {
             text: todoText
           }
         ],
-        deleted: {}
+        deleted: {},
+        disableTodo: true,
+        disableUndelete: true
       }
       expect(reducer(undefined, action)).toEqual(expectedState)
     })
@@ -49,7 +51,8 @@ describe('Reducer', () => {
         deleted: {
           id: 1,
           text: todoText
-        }
+        },
+        disableUndelete: false
       }
 
       expect(reducer(startingState, action)).toEqual(expectedState)
@@ -75,7 +78,29 @@ describe('Reducer', () => {
             text: todoText
           }
         ],
-        deleted: {}
+        deleted: {},
+        disableUndelete: true
+      }
+
+      expect(reducer(startingState, action)).toEqual(expectedState)
+    })
+  })
+
+  describe('Watch input', () => {
+    it('should return the correct state', () => {
+      const startingState = {
+        todos: [],
+        deleted: {},
+        disableTodo: true
+      }
+      const action = {
+        type: types.WATCH_INPUT,
+        inputText: todoText
+      }
+      const expectedState = {
+        todos: [],
+        deleted: {},
+        disableTodo: false
       }
 
       expect(reducer(startingState, action)).toEqual(expectedState)
