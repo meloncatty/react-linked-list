@@ -10,12 +10,12 @@ import registerServiceWorker from './registerServiceWorker'
 import throttle from 'lodash/throttle'
 
 store.subscribe(throttle(() => {
-  localStorage.length > 1
+  localStorage.length > 0
     ? saveState({
-      todos: []
+      todos: store.getState().todos
     })
     : saveState({
-      todos: store.getState().todos
+      todos: []
     })
 }), 1000)
 
