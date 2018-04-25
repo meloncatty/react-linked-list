@@ -1,29 +1,26 @@
+/* global localStorage */
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
-// import store from './store'
-import {loadState} from './localStorage/localStorage.js'
-import todoListApp from './reducer/reducer.js'
+import store from './store'
+import { saveState } from './localStorage/localStorage.js'
 import { Provider } from 'react-redux'
-import { combineReducers, createStore } from 'redux'
 import registerServiceWorker from './registerServiceWorker'
-import { throttle } from 'lodash'
+import throttle from 'lodash/throttle'
 
-const persistedState = loadState()
-const reducers = combineReducers({
-  todoListApp,
-  persistedState
-})
-const store = createStore(
-  reducers
-)
-store.subscribe(throttle(()=>{
-  localStorage.setItem('state', JSON.stringify(store.getState()))
+store.subscribe(throttle(() => {
+  localStorage.length > 1
+    ? saveState({
+      todos: []
+    })
+    : saveState({
+      todos: store.getState().todos
+    })
 }), 1000)
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={store} >
     <App />
   </Provider>,
   document.getElementById('root')

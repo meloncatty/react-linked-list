@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TodoList = ({ todos, deleteTodo }) => {
+const TodoList = ({ todos = [], deleteTodo }) => {
   const todoItems = todos.map(todo => (
     <li key={todo.id}>
       <button

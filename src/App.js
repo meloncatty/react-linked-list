@@ -15,7 +15,7 @@ export const App = ({ submitTodo, todos, deleteTodo, undeleteTodo, disableTodo, 
   </div>
 )
 
-const mapStateToProps = state => state.todoListApp
+const mapStateToProps = state => state
 
 const mapDispatchToProps = dispatch => ({
   submitTodo: (text) => {
@@ -33,6 +33,10 @@ const mapDispatchToProps = dispatch => ({
 
   watchInput: (inputText) => {
     dispatch(actions.watchInput(inputText))
+  },
+
+  checkStorage: () => {
+    dispatch(actions.checkStorage())
   }
 })
 

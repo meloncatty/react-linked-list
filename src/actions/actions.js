@@ -1,17 +1,11 @@
 import types from '../constants/constants.js'
-
-let todoId = 0
-
-const nextId = () => {
-  todoId += 1
-  return todoId
-}
+import { v4 } from 'node-uuid'
 
 const actions = {
   submitTodo (text) {
     return {
       type: types.SUBMIT_TODO,
-      id: nextId(),
+      id: v4(),
       text
     }
   },
