@@ -10,16 +10,17 @@ export const initialState = {
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case types.SUBMIT_TODO:
-      if (state.todos === undefined) {
-        console.log(initialState)
+      
+      if (state.todos === undefined || null) {
         return {
           ...initialState,
           todos: [
             {
               id: action.id,
-              text: action.text
+              title: action.title,
+              body: action.body
             }
-          ]
+          ],
         }
       } else {
         return {
@@ -28,10 +29,11 @@ export const reducer = (state = initialState, action) => {
             ...state.todos,
             {
               id: action.id,
-              text: action.text
+              title: action.title,
+              body: action.body
             }
           ],
-          disableTodo: true
+          disableTodo: false
         }
       }
 

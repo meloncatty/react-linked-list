@@ -18,10 +18,8 @@ export const App = ({ submitTodo, todos, deleteTodo, undeleteTodo, disableTodo, 
 const mapStateToProps = state => state
 
 const mapDispatchToProps = dispatch => ({
-  submitTodo: (text) => {
-    if (text) {
-      dispatch(actions.submitTodo(text))
-    }
+  submitTodo: (data) => {
+      dispatch(actions.submitTodo(data))
   },
   deleteTodo: (id) => {
     dispatch(actions.deleteTodo(id))

@@ -14,13 +14,15 @@ describe('Reducer', () => {
       const action = {
         type: types.SUBMIT_TODO,
         id: 1,
-        text: todoText
+        title: 'title',
+        body: 'body'
       }
       const expectedState = {
         todos: [
           {
             id: 1,
-            text: todoText
+            title: 'title',
+            body: 'body'
           }
         ],
         deleted: {},
@@ -37,7 +39,8 @@ describe('Reducer', () => {
         todos: [
           {
             id: 1,
-            text: todoText
+            title: 'title',
+            body: 'body'
           }
         ],
         deleted: {}
@@ -50,7 +53,8 @@ describe('Reducer', () => {
         todos: [],
         deleted: {
           id: 1,
-          text: todoText
+          title: 'title',
+          body: 'body'
         },
         disableUndelete: false
       }
@@ -65,7 +69,8 @@ describe('Reducer', () => {
         todos: [],
         deleted: {
           id: 1,
-          text: todoText
+          title: 'title',
+          body: 'body'
         }
       }
       const action = {
@@ -75,7 +80,8 @@ describe('Reducer', () => {
         todos: [
           {
             id: 1,
-            text: todoText
+            title: 'title',
+            body: 'body'
           }
         ],
         deleted: {},

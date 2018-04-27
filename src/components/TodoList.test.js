@@ -13,7 +13,8 @@ describe('TodoList component', () => {
     todos: [
       {
         id: 1,
-        text: 'A todo'
+        title: 'title',
+        body: 'body'
       }
     ],
     deleteTodo: deleteMock
@@ -26,7 +27,8 @@ describe('TodoList component', () => {
   })
 
   it('should display a todo when passed in as a prop', () => {
-    expect(renderedList.find('.todo-item').text()).toEqual(props.todos[0].text)
+    const {title, body} = props.todos[0]
+    expect(renderedList.find('.todo-item').text()).toEqual(title + ' ' + body)
   })
 
   it('should delete todo when delete button is pressed', () => {

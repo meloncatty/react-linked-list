@@ -1,24 +1,41 @@
 import React from 'react'
 
 const ToDo = ({submitTodo, undeleteTodo, disableTodo, disableUndelete, watchInput}) => {
-  let input
+  let title
+  let body
 
   return (
     <div>
       <form
         onSubmit={(event) => {
           event.preventDefault()
-          submitTodo(input.value)
-          input.value = ''
+          let todoData = (title, body) => {
+            return {
+              title: title.value,
+              body: body.value
+            }
+          }
+          submitTodo(todoData(title, body))
+          title.value = ''
+          body.value = ''
         }}
       >
         <input
           className='to-do-item'
-          placeholder='Add a to-do...'
+          placeholder='Add a title...'
           ref={(element) => {
-            input = element
+            title = element
           }}
-          onChange={() => watchInput(input.value)}
+          onChange={() => {
+            watchInput(title.value)}}
+        />
+        <input
+          className='todo-body'
+          placeholder='Add a body...'
+          ref={(element) => {
+            body = element
+          }}
+          onChange={() => watchInput(body.value)}
         />
         <button
           className='submit-todo'

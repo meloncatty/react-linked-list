@@ -4,14 +4,19 @@ import actions from './actions'
 import types from '../constants/constants.js'
 
 describe('Actions', () => {
-  const todoText = 'item'
   it('should create an action to add a todo', () => {
-    const expectedAction = {
-      type: types.SUBMIT_TODO,
-      id: 1,
-      text: todoText
+    const expectedType = 'SUBMIT_TODO'
+    const expectedTitle = 'title'
+    const expectedBody = 'body'
+    const data = {
+      title: 'title',
+      body: 'body'
     }
-    expect(actions.submitTodo(todoText)).toEqual(expectedAction)
+
+    expect(actions.submitTodo(data).type).toEqual(expectedType)
+    expect(actions.submitTodo(data).title).toEqual(expectedTitle)
+    expect(actions.submitTodo(data).body).toEqual(expectedBody)
+    expect(actions.submitTodo(data)).toHaveProperty('id')
   })
 
   it('Should create an action to delete a todo', () => {

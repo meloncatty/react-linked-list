@@ -23,8 +23,8 @@ describe('ToDo', () => {
     expect(toDo).toBeDefined()
   })
 
-  it('should have an input', () => {
-    expect(toDo.find('input').length).toEqual(1)
+  it('should have a title and body input', () => {
+    expect(toDo.find('input').length).toEqual(2)
   })
 
   it('should have a submit button', () => {

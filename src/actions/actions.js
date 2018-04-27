@@ -1,12 +1,13 @@
 import types from '../constants/constants.js'
-import { v4 } from 'node-uuid'
+const uuidv1 = require('uuid/v1');
 
 const actions = {
-  submitTodo (text) {
+  submitTodo ({title, body}) {
     return {
       type: types.SUBMIT_TODO,
-      id: v4(),
-      text
+      id: uuidv1(),
+      title,
+      body
     }
   },
 
@@ -25,14 +26,7 @@ const actions = {
 
   watchInput (inputText) {
     return {
-      type: types.WATCH_INPUT,
-      inputText
-    }
-  },
-
-  checkStorage () {
-    return {
-      type: types.CHECK_STORAGE
+      type: types.WATCH_TITLE
     }
   }
 }

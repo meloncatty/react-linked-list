@@ -10,7 +10,7 @@ const TodoList = ({ todos = [], deleteTodo }) => {
       >
           delete
       </button>
-      <span className='todo-item'>{todo.text}</span>
+      <span className='todo-item'>{todo.title} {todo.body}</span>
     </li>
   ))
 
